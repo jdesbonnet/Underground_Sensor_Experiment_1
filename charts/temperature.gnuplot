@@ -11,7 +11,7 @@ set style line 2 linecolor rgb "blue"
 
 
 set terminal pngcairo size 1024,600 background rgb 'black'
-set output "ug1.png"
+set output "temperature-precipitation.png"
 set border lc rgb 'white'
 set key tc rgb 'white'
 
@@ -26,6 +26,6 @@ set grid
 #set xtics "%H:%M"
 set ylabel "Temperature °C / Precipitation mm/hour"
 set xrange ["20161206-0000":"20170101-0000"]
-plot 't.dat' using 1:2 with lines lw 2 title "Temperature at 0.5m depth" , \
-'t2.dat' using 1:2 with impulses lt 3 title "Precipitation (near by station, 6km away)"
+plot '../data/ugsensor.dat' using 1:2 with lines lw 2 title "Temperature at 0.5m depth" , \
+'../data/precipitation.dat' using 1:2 with impulses lt 3 title "Precipitation (near by station, 6km away)"
 

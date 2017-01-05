@@ -1,7 +1,6 @@
 
-set title 'What lies under 106 Tur Uisce' textcolor rgb 'white'
+set title 'Undergroud temperature sensor experiment (433MHz LoRa transceiver)' textcolor rgb 'white'
 set xlabel 'Time' textcolor rgb 'white'
-set ylabel 'Temperature °C' textcolor rgb 'white'
 
 set style fill transparent solid 0.3 noborder
 set style fill noborder
@@ -11,7 +10,7 @@ set style line 2 linecolor rgb "blue"
 
 
 set terminal pngcairo size 1024,600 background rgb 'black'
-set output "ug2.png"
+set output "radio-rssi-snr.png"
 set border lc rgb 'white'
 set key tc rgb 'white'
 
@@ -24,7 +23,11 @@ set xdata time
 set timefmt "%Y%m%d-%H%M%S"
 set grid
 #set xtics "%m%d"
-set format x "%Y/%m/%d"
-set ylabel "Temperature °C"
-plot 't.dat' using 1:3 with lines lw 2 title "RSSI", '' using 1:4 with lines lw 2 title 'SNR dB'
+set format x "%Y\n%m/%d"
+set ylabel "RSSI / SNR (dB)"
+set boxwidth 3600
+set style fill solid 1.0
+set xrange ["20161220-0000":"20161225-0000"]
+plot '../data/ugsensor.dat' using 1:3 with lines lw 2 title "RSSI", '' using 1:4 with lines lw 2 title 'SNR dB', \
+'../data/precipitation.dat' using 1:($2*5):(3600) with boxes lt 3 lc rgb "#8080ff" title "Precipitation (near by station, 6km away)"
 
