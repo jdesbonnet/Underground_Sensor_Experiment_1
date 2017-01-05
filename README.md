@@ -11,6 +11,7 @@ and the precipitation data is available here [2].
 
 ![temperature and precipitation chart](./charts/temperature-precipitation.png)
 
+![radio RSSI, SNR, precipitation chart](./charts/radio-rssi-snr.png)
 
 ## References
 
