@@ -2,7 +2,7 @@
 
 Data from an experiment I'm conducting using low power LoRa radio buried under ground to relay soil temperature, humidity etc.
 
-The sensor is buried about 0.5m underground in my garden. The receiver is located about 10m away in my home office overlooking the garden. The sensor measures temperature using a DS18B20 and relays that every 3 minutes or so.
+The sensor is buried about 0.5m underground in my garden. The receiver is located about 10m away in my home office overlooking the garden. The sensor measures temperature using a DS18B20 and relays that every 143 seconds.
 
 The hardware is based on my LPC812/RFMxx experimentation board [1] powered by a 18650 Lithium iron phosphate cell (the chemistry is more suitable for directly powering 3.3V electronics compared to regular LiPo).
 

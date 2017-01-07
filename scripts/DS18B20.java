@@ -3,12 +3,17 @@
  */
 
 import java.io.*;
+import java.text.*;
 
 public class DS18B20 {
 	public static void main (String[] arg) throws Exception {
+
+		SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd-HHmmss");
+
 		File inFile = new File(arg[0]);
 		BufferedReader r = new BufferedReader(new FileReader(inFile));
 		String line;
+		long lastMessageTime = 0;
 		while (  (line = r.readLine()) != null) {
 			String[] p = line.split("\\s+");
 			if (p.length < 12) {
@@ -28,8 +33,12 @@ public class DS18B20 {
 				continue;
 			}
 
-			// Output: timestamp temperature RSSI SNR
-			System.out.println (p[0] + " " + temperature + " " + p[13] + " " + p[14]); 
+			// Output: timestamp temperature RSSI SNR message-interval
+			long t = df.parse(p[0]).getTime();
+			long messageInterval = t - lastMessageTime;
+			lastMessageTime = t;
+			#System.out.println (p[0] + " " + temperature + " " + p[13] + " " + p[14] + " " + (messageInterval/1000) ); 
+			System.out.println (p[0] + " " + temperature + " " + p[13] + " " + p[14] );
 		}
 	}
 }
