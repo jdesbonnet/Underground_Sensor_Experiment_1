@@ -22,11 +22,12 @@ set label "http://jdesbonnet.blogspot.com" at graph -0.05,-0.10 font ",8" tc rgb
 set xdata time
 set timefmt "%Y%m%d-%H%M%S"
 set grid
-set format x "%Y\n%m/%d"
+#set format x "%Y\n%m/%d"
+set format x "%d %b %Y"
 set ylabel "RSSI / SNR (dB) / Precipitation (mm/hour x 5)" textcolor rgb 'white'
 set boxwidth 3600
 set style fill solid 1.0
-set xrange ["20161220-0000":"20161225-0000"]
+#set xrange ["20161220-0000":"20161225-0000"]
 plot '../data/ugsensor.dat' using 1:3 with lines lw 2 title "RSSI", '' using 1:4 with lines lw 2 title 'SNR dB', \
 '../data/precipitation.dat' using 1:($2*5):(3600) with boxes lt 3 lc rgb "#8080ff" title "Precipitation (near by station, 6km away)"
 
