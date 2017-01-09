@@ -13,17 +13,27 @@ public class ConvertTimeFormat {
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		SimpleDateFormat dfout = new SimpleDateFormat("yyyyMMdd-HHmmss");
 
-		File inFile = new File(arg[0]);
-		BufferedReader r = new BufferedReader(new FileReader(inFile));
+
+		BufferedReader r;
+		if ("-".equals(arg[0])) {
+			r = new BufferedReader(new InputStreamReader(System.in));
+		} else {
+			File inFile = new File(arg[0]);
+			r = new BufferedReader(new FileReader(inFile));
+		}
 		String line;
 		while (  (line = r.readLine()) != null) {
 			String[] p = line.split("\\t");
 			if (p.length < 2) {
 				continue;
 			}
-			Date timestamp = df.parse(p[0]);
-			double precipitation = Double.parseDouble(p[1]);
-			System.out.println (dfout.format(timestamp) + " " + precipitation); 
+			try {
+				Date timestamp = df.parse(p[0]);
+				double precipitation = Double.parseDouble(p[1]);
+				System.out.println (dfout.format(timestamp) + " " + precipitation); 
+			} catch (ParseException e) {
+				// ignore
+			}
 		}
 	}
 }
