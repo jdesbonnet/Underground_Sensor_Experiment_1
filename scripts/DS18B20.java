@@ -37,7 +37,7 @@ public class DS18B20 {
 			long t = df.parse(p[0]).getTime();
 			long messageInterval = t - lastMessageTime;
 			lastMessageTime = t;
-			#System.out.println (p[0] + " " + temperature + " " + p[13] + " " + p[14] + " " + (messageInterval/1000) ); 
+			//System.out.println (p[0] + " " + temperature + " " + p[13] + " " + p[14] + " " + (messageInterval/1000) ); 
 			System.out.println (p[0] + " " + temperature + " " + p[13] + " " + p[14] );
 		}
 	}
