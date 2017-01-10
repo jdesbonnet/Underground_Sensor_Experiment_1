@@ -29,8 +29,9 @@ public class ConvertTimeFormat {
 			}
 			try {
 				Date timestamp = df.parse(p[0]);
-				double precipitation = Double.parseDouble(p[1]);
-				System.out.println (dfout.format(timestamp) + " " + precipitation); 
+				System.out.println (dfout.format(timestamp) 
+					+ " " + line.substring(p[0].length()+1).replaceAll("\t"," ")
+				); 
 			} catch (ParseException e) {
 				// ignore
 			}

@@ -28,6 +28,6 @@ set grid
 set ylabel "Temperature °C / Precipitation mm/hour" textcolor rgb 'white'
 #set xrange ["20161206-0000":"20170101-0000"]
 plot '../data/ugsensor.dat' using 1:2 with lines lw 2 title "Temperature at 0.5m depth" , \
-'../data/precipitation.dat' using 1:2 with impulses lt 3 title "Precipitation (nearby station, 6km away)", \
-'../data/weather.dat' using 1:2 with lines linecolor rgb "#ffff00" title "Air temperature (nearby station, 6km away)"
+'../data/nuig_precipitation.dat' using 1:2 with impulses lt 3 title "Precipitation (nearby station, 6km away)", \
+'../data/nuig_weather.dat' using 1:2 with lines linecolor rgb "#ffff00" title "Air temperature (nearby station, 6km away)"
 
