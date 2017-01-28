@@ -1,6 +1,6 @@
 
 set title 'Underground temperature sensor experiment (433MHz LoRa transceiver)' textcolor rgb 'white'
-set xlabel 'Time' textcolor rgb 'white'
+set xlabel 'Time (year 2016/2017)' textcolor rgb 'white'
 
 set style fill transparent solid 0.3 noborder
 set style fill noborder
@@ -23,7 +23,7 @@ set xdata time
 set timefmt "%Y%m%d-%H%M%S"
 set grid
 #set format x "%Y\n%m/%d"
-set format x "%d %b %Y"
+set format x "%d %b"
 set ylabel "RSSI / SNR (dB) / Precipitation (mm/hour x 5)" textcolor rgb 'white'
 set boxwidth 3600
 set style fill solid 1.0
