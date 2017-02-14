@@ -12,6 +12,8 @@ The precipitation data is taken from a weather station about 6km away located at
 
 ![radio RSSI, SNR, precipitation chart](./charts/radio-rssi-snr.png)
 
+![burried sensor, red string to help retrieve](./doc/buried_sensor.jpg)
+
 ## References
 
 [1] https://github.com/jdesbonnet/RFM69_LPC812_firmware
