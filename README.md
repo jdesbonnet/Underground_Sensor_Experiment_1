@@ -13,7 +13,7 @@ The precipitation data is taken from a weather station about 6km away located at
 ![radio RSSI, SNR, precipitation chart](./charts/radio-rssi-snr.png)
 
 
-The power configuration for this experiment is not optimized for battery live. The radio is set at maximum transmission power and the LoRa parameters are such that a message requires about 1 second on air to transmit. The radio module consumes 100mA while transitting. So each message consumes (0.1/3600) amp-hours (Ah) of charge. The battery capacity is approx 1.5Ah. So a total of about 54000 messages, or 90 days of operation. The data so far shows that temperature 0.5m under ground varies slowly, so one message per hour is more than sufficient. Also I envisag an order of magnitude improvement in radio efficiency by tweeking the LoRa parameters. Together these improvements that can extend battery life of this device to years.
+The power configuration for this experiment is not optimized for battery live. The radio is set at maximum transmission power and the LoRa parameters are such that a message requires about 1 second on air to transmit. The radio module consumes 100mA while transitting. So each message consumes (0.1/3600) amp-hours (Ah) of charge. The battery capacity is approx 1.5Ah. So a total of about 54000 messages, or 90 days of operation. The data so far shows that temperature 0.5m under ground varies slowly, so one message per hour is more than sufficient. Also I envisage an order of magnitude improvement in radio efficiency by tweeking the LoRa protocol transmit parameters. Together these improvements can extend battery life to years.
 
 ![burried sensor, red string to help retrieve](./doc/buried_sensor.jpg)
 
