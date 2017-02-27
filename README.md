@@ -2,7 +2,7 @@
 
 Data from an experiment I'm conducting using low power LoRa (433MHz) radio buried under ground to relay soil temperature, humidity etc.
 
-The sensor is buried about 0.5m underground in my garden. The receiver is located about 10m away in my home office overlooking the garden. The sensor measures temperature using a Maxim DS18B20 sensor and relays that every 143 seconds.
+The sensor is buried about 0.4m underground in my garden. The receiver is located about 10m away in my home office overlooking the garden. The sensor measures temperature using a Maxim DS18B20 sensor and relays that every 143 seconds.
 
 ![temperature and precipitation chart](./charts/temperature-precipitation.png)
 
@@ -17,6 +17,16 @@ The power configuration for this experiment is not optimized for battery live. T
 
 ![burried sensor, red string to help retrieve](./doc/buried_sensor.jpg)
 
+## Notes about sensor configuration
+
+Dug up sensor on 27 Feb 2017 as telemetry indicated that battery was near exhaused. Updated firmware from version 0.7.1 to 0.7.3. The latest firmware fixes a power management bug (Issue #13) whereby the first sleep cycle after reset does not enter full deep sleep mode (consuming in excess of 1mA when it should be just 4µA). Because the watchdog timer resets the device every few hours this bug was a significant waste of battery capacity. This bug is expecially significant at the end of the battery discharge cycle when it automatically extends the polling period by x8, which means that every few hours the unit draws over 1mA for an entire (long) sleep cycle.
+
+Firmware requires the following configuration:
+
+  * Enable DS18B20 reading in param block (command "P 5 1").
+  * Set poll interval to reasonably long time 5 - 15 minutes.
+  * Set low power poll mode and save configuration (command "M 2 S")
+  
 ## References
 
 [1] https://github.com/jdesbonnet/RFM69_LPC812_firmware
