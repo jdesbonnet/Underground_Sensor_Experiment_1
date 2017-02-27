@@ -19,26 +19,25 @@ The power configuration for this experiment is not optimized for battery live. T
 
 ## Notes about sensor configuration
 
-Dug up sensor on 27 Feb 2017 as telemetry indicated that battery was near exhaused. Updated firmware from version 0.7.1 to 0.7.3. The latest firmware fixes a power management bug (Issue #13) whereby the first sleep cycle after reset does not enter full deep sleep mode (consuming in excess of 1mA when it should be just 4µA). Because the watchdog timer resets the device every few hours this bug was a significant waste of battery capacity. This bug is expecially significant at the end of the battery discharge cycle when it automatically extends the polling period by x8, which means that every few hours the unit draws over 1mA for an entire (long) sleep cycle.
-
 Firmware requires the following configuration:
 
   * Enable DS18B20 reading in param block (command "P 5 1").
   * Set poll interval to reasonably long time 5 - 15 minutes.
   * Set low power poll mode and save configuration (command "M 2 S")
   
-
 ## Log 
 
 ### 27 Feb 2017 
 
 Telemetry indicated that there was at most a few days of battery life left. Dug up sensor at about 16:30, 
-replaced battery and updated firmware from
-version 0.7.1 to 0.7.3. This version fixes a power management bug (Issue #13) which should significantly improve battery life. Cell 
-voltage was found to be 2.447V before replacement. It was found that the unit transmitted 49460 messages from start of experiment which
-agrees reasonably well with my estimate of 54000 messages.  
+replaced LiFePO4 cell with an identical fully-charged cell. Cell  voltage was found to be 2.447V before replacement. 
 
-Depth of sensor was re-measured. Surface to top of outer jar: 28cm. Hight of jar 17cm, which would put the sensor at about dept 40cm. 
+Also updated firmware from version 0.7.1 to 0.7.3. This version fixes a power management bug (Issue #13) which should significantly improve battery life. The bug meant that the first sleep cycle after boot/reset was not in full deep sleep and was consuming in excess of 1mA (when it should have been consuming only 4µA). Because the watchdog timer resets the device every few hours this bug was a significant waste of battery capacity. This bug was expecially significant at the end of the battery discharge cycle when the polling period is extended by a factor of 8. It meant that every few hours the unit drew over 1mA for an entire (long) sleep cycle.
+
+It was found that the unit transmitted 49460 messages from start of experiment (4 Dec 2016) which
+agrees reasonably well with my projected estimate of 54000 messages.  
+
+The depth of sensor was re-measured. Surface to top of outer jar: 28cm. Height of jar 17cm, which would put the sensor at about depth of about 40cm. 
 
 Firmware file RF9x_0.7.3.bin (SHA256 a10bc2c3f7cda16a02d4500f7b653b8fa19b2cfea7b436cc161ccf47905c4a29).
 
