@@ -27,6 +27,26 @@ Firmware requires the following configuration:
   * Set poll interval to reasonably long time 5 - 15 minutes.
   * Set low power poll mode and save configuration (command "M 2 S")
   
+
+## Log 
+
+### 27 Feb 2017 
+
+Telemetry indicated that there was at most a few days of battery life left. Dug up sensor at about 16:30, 
+replaced battery and updated firmware from
+version 0.7.1 to 0.7.3. This version fixes a power management bug (Issue #13) which should significantly improve battery life. Cell 
+voltage was found to be 2.447V before replacement. It was found that the unit transmitted 49460 messages from start of experiment which
+agrees reasonably well with my estimate of 54000 messages.  
+
+Depth of sensor was re-measured. Surface to top of outer jar: 28cm. Hight of jar 17cm, which would put the sensor at about dept 40cm. 
+
+Firmware file RF9x_0.7.3.bin (SHA256 a10bc2c3f7cda16a02d4500f7b653b8fa19b2cfea7b436cc161ccf47905c4a29).
+
+
+### 4 Dec 2016
+
+Sensor buried. Experiment started.
+
 ## References
 
 [1] https://github.com/jdesbonnet/RFM69_LPC812_firmware
