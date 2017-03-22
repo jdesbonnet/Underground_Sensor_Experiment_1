@@ -27,6 +27,10 @@ Firmware requires the following configuration:
   
 ## Log 
 
+### 17 Mar 2017
+
+Data missing for about 18 hours due to unscheduled server re-boot.
+
 ### 27 Feb 2017 
 
 Telemetry indicated that there was at most a few days of battery life left. Dug up sensor at about 16:30, 
