@@ -1,5 +1,6 @@
 /**
- * Reduce sensor data into periodic bins for precipitation.
+ * Join hourly sensor means with hourly precipitation to arrive
+ * at data for precip vs snr chart.
  */
 import java.io.*;
 import java.util.*;
@@ -7,8 +8,8 @@ import java.text.*;
 
 /**
  * Command line parameters:
- * 1. Input file or  "-" for stdin
- * 2. Bin period in seconds
+ * 1. Sensor hourly summary file
+ * 2. Hourly precipitation records
  */
 public class Join {
 	public static void main (String[] arg) throws Exception {
