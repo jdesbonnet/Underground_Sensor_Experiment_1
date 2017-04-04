@@ -17,10 +17,15 @@ public class Join {
 		//SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd-HHmmss");
 
+		File radioFile = new File(arg[0]);
+		File precipFile = new File(arg[1]);
+		int offset = Integer.parseInt(arg[2]);
 
 
-		BufferedReader r = new BufferedReader(new FileReader(arg[0]));
-		Map<String,String> map = new HashMap<>();
+
+		BufferedReader r = new BufferedReader(new FileReader(radioFile));
+		Map<String,String> radioMap = new TreeMap<>();
+		Map<String,String> precipMap = new TreeMap<>();
 
 		// radio
 		String line;
@@ -29,21 +34,39 @@ public class Join {
 			if (p.length < 2) {
 				continue;
 			}
-			map.put(p[0], line.substring(p[0].length()+1) );
+			String ts = p[0];
+			String rest = line.substring(ts.length()+1);
+			radioMap.put(ts, rest);
 		}
 		r.close();
 
 		// precip
-		r = new BufferedReader(new FileReader(arg[1]));
+		r = new BufferedReader(new FileReader(precipFile));
 		while (  (line = r.readLine()) != null) {
 			String[] p = line.split(" ");
 			if (p.length < 2) {
 				continue;
 			}
-			System.out.println("" + p[0] + " " + line.substring(p[0].length()+1) 
-				+ " " + map.get(p[0]) );
+			String ts = p[0];
+			String rest = line.substring(ts.length()+1);
+			precipMap.put(ts,rest);
+
 		}
 		r.close();
+
+		List<String>tsList = new ArrayList(radioMap.keySet());
+
+		int start,end;
+		if (offset<0) {
+			start = -offset;
+			end = tsList.size();
+		} else {
+			start = 0;
+			end = tsList.size() - offset;
+		}
+		for (int i = start; i < end; i++) {
+			System.out.println (tsList.get(i) + " " + precipMap.get(tsList.get(i+offset)) + " " + radioMap.get(tsList.get(i)));
+		}
 
 	}
 }
