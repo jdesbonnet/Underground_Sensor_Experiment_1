@@ -1,5 +1,5 @@
 /**
- * Reduce sensor data into periodic bins for precipitation.
+ * Reduce precipitation into periodic bins for precipitation.
  */
 import java.io.*;
 import java.util.*;
