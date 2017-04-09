@@ -27,6 +27,15 @@ Firmware requires the following configuration:
   
 ## Log 
 
+### 9 Apr 2017
+
+Time should have been recorded in UTC, but is actuall in IST (with a +1 day light saving time offset from UTC after 26 Mar 2017.
+
+### 5 Apr 2017
+
+Device with active 3G radio placed close to receiving station from about midday 4 Apr to 17:00 5 Apr. Has had a noticable 
+effect on SNR.
+
 ### 17 Mar 2017
 
 Data missing for about 18 hours due to unscheduled server re-boot.
