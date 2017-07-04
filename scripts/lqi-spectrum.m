@@ -9,10 +9,6 @@
 # jdesbonnet@gmail.com
 # 2 Jul 2017
 
-function disp(x)
-end
-
-
 datain = argv(){1}
 dataout = argv(){2}
 
