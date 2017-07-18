@@ -27,6 +27,11 @@ Firmware requires the following configuration:
   
 ## Log 
 
+### 18 Jul 2017
+
+Disruptions to data receiption due to host computer UART problems at receiver station in mid-July 2017. 
+Sensors, radio hardware and radio firmware appear not to be at fault.
+
 ### 9 Apr 2017
 
 Time should have been recorded in UTC, but is actuall in IST (with a +1 day light saving time offset from UTC after 26 Mar 2017.
