@@ -30,7 +30,7 @@ set y2label "Precipitation mm/hour" textcolor rgb 'white'
 set y2tics
 set ytics nomirror
 set autoscale y2
-set yrange [0:15]
+set yrange [0:25]
 set xrange ["20161206-0000":*]
 plot \
 '../data/nuig_precipitation.dat' using 1:2 axes x1y2 with impulses lt 3 title "Precipitation (nearby station, 6km away)", \
