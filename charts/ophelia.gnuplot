@@ -5,15 +5,15 @@
 #
 
 start_time="20171016-0700"
-end_time="20171016-1500"
+end_time="20171017-0000"
 
-set terminal pngcairo size 1800,1000 background rgb 'black'
+set terminal pngcairo size 1800,1200 background rgb 'black'
 set output "ophelia.png"
 
 set key opaque right bottom 
 
 
-set multiplot layout 3, 1  title "Ophelia from NUIG weather station (16 Oct 2017)" font ",18" 
+set multiplot layout 4, 1  title "Ophelia from NUIG weather station (16 Oct 2017)" font ",18" 
 
 # Not possible to set textcolor in multiplot title
 # Ref: https://stackoverflow.com/questions/38981511/how-to-specify-color-of-multiplot-title
@@ -58,7 +58,25 @@ plot '../data/ophelia.dat' using 1:5 with lines linewidth 2 linecolor rgb "green
 #
 set xrange[start_time:end_time]
 set ylabel "hPa"  textcolor rgb "white"
-set xlabel "Time (IST)" textcolor rgb "white"
-set yrange [960:1000]
+#set xlabel "Time (IST)" textcolor rgb "white"
+set yrange [960:1010]
 plot '../data/ophelia.dat' using 1:7 with lines linewidth 2 linecolor rgb "violet" title "Atmospheric pressure" 
+
+#
+# Precip
+#
+set xrange[start_time:end_time]
+set ylabel "mm / hour"  textcolor rgb "white"
+set yrange [0:2]
+set style fill solid 1.0
+plot '../data/ophelia_precip.dat' using 1:2 with boxes linewidth 2 linecolor rgb "blue" title "Precipitation" 
+
+#
+# Temperature
+#
+#set xrange[start_time:end_time]
+#set ylabel "°C"  textcolor rgb "white"
+#set yrange [*:*]
+#plot '../data/ophelia.dat' using 1:2 with lines linewidth 2 linecolor rgb "yellow" title "Temperature" 
+
 
