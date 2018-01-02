@@ -27,6 +27,10 @@ Firmware requires the following configuration:
   
 ## Log 
 
+### 30 Dec 2017
+
+Server down over holiday period. I was away so couldn't reset. Data loss of a little over a week.
+
 ### 18 Jul 2017
 
 Disruptions to data receiption due to host computer UART problems at receiver station in mid-July 2017. 
