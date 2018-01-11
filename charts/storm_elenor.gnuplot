@@ -5,7 +5,7 @@
 #
 
 start_time="20180102-1200"
-end_time="20180103-1200"
+end_time="20180103-2200"
 
 set terminal pngcairo size 1800,1200 background rgb 'black'
 set output "storm_elenor.png"
@@ -54,12 +54,12 @@ set ylabel "Degrees (0 = wind from north)"  textcolor rgb "white"
 plot '../data/storm_elenor.dat' using 1:5 with lines linewidth 2 linecolor rgb "green" title "Wind direction" 
 
 #
-#
+# Atm pressure
 #
 set xrange[start_time:end_time]
 set ylabel "hPa"  textcolor rgb "white"
 #set xlabel "Time (IST)" textcolor rgb "white"
-set yrange [960:1010]
+set yrange [970:1000]
 plot '../data/storm_elenor.dat' using 1:7 with lines linewidth 2 linecolor rgb "violet" title "Atmospheric pressure" 
 
 #
