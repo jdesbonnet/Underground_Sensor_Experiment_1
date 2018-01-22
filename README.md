@@ -27,6 +27,13 @@ Firmware requires the following configuration:
   
 ## Log 
 
+### 21 Jan 2018
+
+Verified for the first time two-way communications (just never got around to it until now). Issued over the air
+wake command and changed the sampling period and returned to low power mode. Everything worked as expected.
+It was observed that having the receiver on for a few minutes increased the temperature slightly (by about 0.2C). 
+The receiver consumes about 20mA (about 60mW) so this wasn't surprising.
+
 ### 30 Dec 2017
 
 Server down over holiday period. I was away so couldn't reset. Data loss of a little over a week.
