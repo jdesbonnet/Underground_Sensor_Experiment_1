@@ -1,16 +1,32 @@
 /**
  * Convert radio packet log into useable data file. 
+ *
+ * Parameters: sensor-log-file node-addr
  */
 
 import java.io.*;
 import java.text.*;
 
 public class DS18B20 {
+
+	private static SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd-HHmmss");
+
 	public static void main (String[] arg) throws Exception {
 
-		SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd-HHmmss");
-
+		if (arg.length < 2) {
+			usage();
+			return;
+		}
+	
 		File inFile = new File(arg[0]);
+
+		String sensorAddr = arg[1];
+
+		if (sensorAddr.startsWith("0x")) {
+			sensorAddr = sensorAddr.substring(2);
+		}
+		sensorAddr = sensorAddr.toUpperCase();
+
 		BufferedReader r = new BufferedReader(new FileReader(inFile));
 		String line;
 		long lastMessageTime = 0;
@@ -20,8 +36,10 @@ public class DS18B20 {
 				continue;
 			}
 
-			// Only interested in node 0x53
-			if ( ! "53".equals(p[5])) {
+			String node = p[5].toUpperCase();
+
+			// Only interested in sensor node
+			if ( ! sensorAddr.equals(node)) {
 				continue;
 			}
 
@@ -37,8 +55,11 @@ public class DS18B20 {
 			long t = df.parse(p[0]).getTime();
 			long messageInterval = t - lastMessageTime;
 			lastMessageTime = t;
-			//System.out.println (p[0] + " " + temperature + " " + p[13] + " " + p[14] + " " + (messageInterval/1000) ); 
 			System.out.println (p[0] + " " + temperature + " " + p[13] + " " + p[14] );
 		}
+	}
+
+	private static void usage () {
+		System.out.println ("parameers: package-log-file node-address");
 	}
 }
