@@ -31,7 +31,10 @@ Firmware requires the following configuration:
 
 ### 7 Feb 2018
 
-A second sensor has been deployed at Onagh, Co. Roscommon (53.406864,-8.131192) at depth 10cm.
+A second sensor has been deployed at Onagh, Co. Roscommon (53.406864,-8.131192) at depth 10cm. Using
+Tur Uisce receiver station out there. Replacement 
+receiver for Tur Uisce not in place yet, so only one or two readings per day form this location until a
+new receiver in put in place.
 
 ### 21 Jan 2018
 
