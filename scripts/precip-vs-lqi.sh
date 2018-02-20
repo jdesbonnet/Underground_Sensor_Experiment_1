@@ -1,7 +1,12 @@
 #!/bin/bash
 #BIN_SIZE=172800
+
+# 24 hours
 #BIN_SIZE=86400
+
+# 12 hours
 BIN_SIZE=43200
+
 cat ../data/ugsensor.dat  | java HourlyMeans - ${BIN_SIZE} > t.t
 cat ../data/nuig_precipitation.dat | java PrecipMeans - ${BIN_SIZE} > p.p
 for offset in $(seq -3 3); do
