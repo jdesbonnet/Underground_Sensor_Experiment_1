@@ -46,7 +46,9 @@ public class DS18B20 {
 			// DS18B20 temperature
 			int msbyte = Integer.parseInt(p[10],16);
 			int lsbyte = Integer.parseInt(p[11],16);
-			double temperature = (double)(msbyte*256+lsbyte)/(double)16;
+			int temp32 = (msbyte << 8) | (lsbyte&0xff);
+			short temp16 = (short)temp32;
+			double temperature = (double)temp16/16.0;
 			if (temperature > 80 || temperature < -40) {
 				continue;
 			}
