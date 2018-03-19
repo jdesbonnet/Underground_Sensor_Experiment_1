@@ -31,7 +31,7 @@ Firmware requires the following configuration:
   
 ## Log 
 
-### 17 Feb 2018
+### 17 Mar 2018
 
 Experimenting with using this sensor in a freezer. Will the -20°C temperatures affect battery performance? Seems not.
 
