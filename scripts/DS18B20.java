@@ -32,7 +32,12 @@ public class DS18B20 {
 		long lastMessageTime = 0;
 		while (  (line = r.readLine()) != null) {
 			String[] p = line.split("\\s+");
+
 			if (p.length < 12) {
+				continue;
+			}
+
+                        if (! "FRAME:".equals(p[2])) {
 				continue;
 			}
 
