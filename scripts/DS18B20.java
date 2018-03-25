@@ -6,10 +6,20 @@
 
 import java.io.*;
 import java.text.*;
+import java.util.Date;
+import java.util.TimeZone;
 
 public class DS18B20 {
 
 	private static SimpleDateFormat df = new SimpleDateFormat("yyyyMMdd-HHmmss");
+
+	// ISO 8601 time format
+	private static TimeZone utcTz = TimeZone.getTimeZone("UTC");
+	private static SimpleDateFormat isodf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+
+	static {
+		isodf.setTimeZone(utcTz);
+	}
 
 	public static void main (String[] arg) throws Exception {
 
@@ -59,10 +69,17 @@ public class DS18B20 {
 			}
 
 			// Output: timestamp temperature RSSI SNR message-interval
-			long t = df.parse(p[0]).getTime();
+			String timestampStr = p[0];
+			Date timestamp;
+			if (timestampStr.indexOf("T")>0) {
+				timestamp = isodf.parse(timestampStr);
+			} else {
+				timestamp = df.parse(timestampStr);	
+			}
+			long t = timestamp.getTime();
 			long messageInterval = t - lastMessageTime;
 			lastMessageTime = t;
-			System.out.println (p[0] + " " + temperature + " " + p[13] + " " + p[14] );
+			System.out.println (df.format(timestamp) + " " + temperature + " " + p[13] + " " + p[14] );
 		}
 	}
 
