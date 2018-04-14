@@ -51,6 +51,12 @@ public class DS18B20 {
 				continue;
 			}
 
+			// Data packets addressed to node 0, ignore others.
+			String toNode = p[4].toUpperCase();
+			if ( !toNode.equals("0")) {
+				continue;
+			}	
+
 			String node = p[5].toUpperCase();
 
 			// Only interested in sensor node
