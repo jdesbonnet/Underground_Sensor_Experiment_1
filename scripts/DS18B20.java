@@ -85,7 +85,14 @@ public class DS18B20 {
 			long t = timestamp.getTime();
 			long messageInterval = t - lastMessageTime;
 			lastMessageTime = t;
+
+			// Gap in data: add blank line for gnuplot
+			if (messageInterval > 3600*12*1000L) {
+				System.out.println ("");
+			}
+
 			System.out.println (df.format(timestamp) + " " + temperature + " " + p[13] + " " + p[14] );
+
 		}
 	}
 
