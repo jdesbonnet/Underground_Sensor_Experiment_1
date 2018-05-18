@@ -37,8 +37,8 @@ set ylabel "Temperature °C" textcolor rgb 'white'
 #set y2tics
 #set ytics nomirror
 #set autoscale y2
-set yrange [0:12]
+set yrange [0:16]
 set xrange ["20180207-1600":*]
 plot \
-'../data/ugsensor_onagh.dat' using 1:2 with lines lt 1 lw 2 title "Temperature at 0.1m depth", \
+'../data/ugsensor_onagh.dat' using 1:2 with lines lt 1 linecolor rgb "red" lw 2 title "Temperature at 0.1m depth", \
 'farmeye-logo-trans.png' binary filetype=png with rgbimage notitle

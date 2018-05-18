@@ -33,7 +33,7 @@ set format x "%d %b\n%H:%M"
 set grid
 #set xtics "%H:%M"
 set ylabel "Temperature °C" textcolor rgb 'white'
-#set yrange [0:12]
+set yrange [-25 : 0]
 #set xrange ["20180207-1600":*]
 plot \
-'../data/sensor_freezer.dat' using 1:2 with linespoints lt 1 lw 2 title ""
+'../data/sensor_freezer.dat' using 1:2 with lines lt 1 lw 2 title ""
