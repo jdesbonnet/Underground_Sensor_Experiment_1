@@ -31,6 +31,9 @@ Firmware requires the following configuration:
   
 ## Log 
 
+## 29 May 2018
+Retrieved from ground. Vbat=2.724V. Recharging.
+
 ### 17 Mar 2018
 
 Experimenting with using this sensor in a freezer. Will the -20°C temperatures affect battery performance? Seems not.
