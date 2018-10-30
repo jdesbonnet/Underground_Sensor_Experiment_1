@@ -40,6 +40,9 @@ public class DS18B20 {
 		BufferedReader r = new BufferedReader(new FileReader(inFile));
 		String line;
 		long lastMessageTime = 0;
+
+		double prevTemperature = -99;
+
 		while (  (line = r.readLine()) != null) {
 			String[] p = line.split("\\s+");
 
@@ -74,6 +77,11 @@ public class DS18B20 {
 				continue;
 			}
 
+			// Ignore spikes
+			if (prevTemperature>-90 && Math.abs(temperature-prevTemperature)>5) {
+				continue;
+			}
+
 			// Output: timestamp temperature RSSI SNR message-interval
 			String timestampStr = p[0];
 			Date timestamp;
@@ -89,10 +97,12 @@ public class DS18B20 {
 			// Gap in data: add blank line for gnuplot
 			if (messageInterval > 3600*12*1000L) {
 				System.out.println ("");
+				prevTemperature=-99;
 			}
 
 			System.out.println (df.format(timestamp) + " " + temperature + " " + p[13] + " " + p[14] );
 
+			prevTemperature = temperature;
 		}
 	}
 
