@@ -14,3 +14,6 @@ gnuplot radio-rssi-snr-onagh.gnuplot
 gnuplot temperature-onagh.gnuplot
 gnuplot temperature-freezer.gnuplot
 
+
+cp ../charts/*.png /var/www/em.wombat.ie/html/ug
+
