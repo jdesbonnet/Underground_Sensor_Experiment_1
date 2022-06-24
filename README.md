@@ -17,7 +17,7 @@ The precipitation data is taken from a weather station about 6km away located at
 ![radio RSSI, SNR, precipitation chart](./charts/radio-rssi-snr.png)
 
 
-The power configuration for this experiment is not optimized for battery live. The radio is set at maximum transmission power and the LoRa parameters are such that a message requires about 1 second on air to transmit. The radio module consumes 100mA while transitting. So each message consumes (0.1/3600) amp-hours (Ah) of charge. The battery capacity is approx 1.5Ah. So a total of about 54000 messages, or 90 days of operation. The data so far shows that temperature 0.5m under ground varies slowly, so one message per hour is more than sufficient. Also I envisage an order of magnitude improvement in radio efficiency by tweeking the LoRa protocol transmit parameters. Together these improvements can extend battery life to years.
+The power configuration for this experiment is not optimized for battery life. The radio is set at maximum transmission power and the LoRa parameters are such that a message requires about 1 second on air to transmit. The radio module consumes 100mA while transitting. So each message consumes (0.1/3600) amp-hours (Ah) of charge. The battery capacity is approx 1.5Ah. So a total of about 54000 messages, or 90 days of operation. The data so far shows that temperature 0.5m under ground varies slowly, so one message per hour is more than sufficient. Also I envisage an order of magnitude improvement in radio efficiency by tweeking the LoRa protocol transmit parameters. Together these improvements can extend battery life to years.
 
 ![burried sensor, red string to help retrieve](./doc/buried_sensor.jpg)
 
@@ -83,7 +83,7 @@ Data missing for about 18 hours due to unscheduled server re-boot.
 Telemetry indicated that there was at most a few days of battery life left. Dug up sensor at about 16:30, 
 replaced LiFePO4 cell with an identical fully-charged cell. Cell  voltage was found to be 2.447V before replacement. 
 
-Also updated firmware from version 0.7.1 to 0.7.3. This version fixes a power management bug (Issue #13) which should significantly improve battery life. The bug meant that the first sleep cycle after boot/reset was not in full deep sleep and was consuming in excess of 1mA (when it should have been consuming only 4µA). Because the watchdog timer resets the device every few hours this bug was a significant waste of battery capacity. This bug was expecially significant at the end of the battery discharge cycle when the polling period is extended by a factor of 8. It meant that every few hours the unit drew over 1mA for an entire (long) sleep cycle.
+Also updated firmware from version 0.7.1 to 0.7.3. This version fixes a power management bug (Issue #13) which should significantly improve battery life. Issue #13 caused the first sleep cycle after boot/reset not to be in full deep sleep mode. Instead it was consuming in excess of 1mA (when it should have been consuming only 4µA). Because the watchdog timer resets the device every few hours this bug caused a significant waste of battery capacity. It was expecially significant at the end of the battery discharge cycle when the polling period is extended by a factor of 8. It meant that every few hours the unit drew over 1mA for an entire (long) sleep cycle.
 
 It was found that the unit transmitted 49460 messages from start of experiment (4 Dec 2016) which
 agrees reasonably well with my projected estimate of 54000 messages.  
